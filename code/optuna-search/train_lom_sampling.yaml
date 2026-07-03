@@ -1,0 +1,58 @@
+# LLaMA-Factory Training Configuration for LOM Module
+# =====================================================
+# Optimized for Phi-4-mini-Instruct with LoRA
+# Dataset: LOM (SR error correction task)
+# Adjusted from working BAM config
+
+### Model Configuration
+model_name_or_path: ../../models/Phi-4-mini-instruct
+template: phi4
+
+### Method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_target: all
+
+### Dataset
+dataset: lom_train
+eval_dataset: lom_dev
+dataset_dir: sampling
+cutoff_len: 1024
+
+### LoRA Hyperparameters (WILL BE TUNED BY OPTUNA)
+lora_rank: 16                # Will be searched: [8, 16, 32]
+lora_alpha: 32               # Will be set as: rank * 2
+lora_dropout: 0.05           # Fixed
+
+### Training Hyperparameters (WILL BE TUNED BY OPTUNA)
+learning_rate: 3.0e-5        # Will be searched: log(1e-5, 8e-5)
+num_train_epochs: 3          # Fixed
+per_device_train_batch_size: 4    # Will be searched: [4, 8]
+gradient_accumulation_steps: 4    # Will be computed: 16 // batch_size
+per_device_eval_batch_size: 2     # Keep as is
+
+### Optimizer
+lr_scheduler_type: cosine
+warmup_ratio: 0.03           # Fixed
+weight_decay: 0.0            # Fixed
+max_grad_norm: 1.0           # Fixed
+
+### Evaluation & Saving
+eval_strategy: steps         # Match with save_strategy
+eval_steps: 100
+save_strategy: steps         # Match with eval_strategy
+save_steps: 100
+metric_for_best_model: eval_loss
+greater_is_better: false
+load_best_model_at_end: true
+
+### Output
+output_dir: ../../outputs/llamafactory-finetuning/lom_baseline
+logging_steps: 5
+logging_first_step: true
+
+### Precision & Advanced
+bf16: true
+gradient_checkpointing: true
+report_to: none

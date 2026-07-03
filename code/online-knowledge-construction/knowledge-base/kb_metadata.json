@@ -1,0 +1,25 @@
+{
+  "build_time": "2026-06-18T15:34:43.212334",
+  "build_duration_seconds": 13.348203,
+  "architecture": "Single-Vector (Question-only)",
+  "quality_filter": {
+    "field": "status",
+    "value": "valid_quality"
+  },
+  "statistics": {
+    "total_entries_in_dataset": 9112,
+    "passed_quality_check": 7383,
+    "failed_quality_check": 1729,
+    "missing_quality_field": 0,
+    "missing_question_sql": 0
+  },
+  "total_indexed_vectors": 7383,
+  "vectors_per_entry": 1,
+  "embedding_model": "../../../models/Qwen3-Embedding-0.6B",
+  "embedding_dimension": 1024,
+  "distance_metric": "cosine",
+  "indexing_algorithm": "HNSW",
+  "unique_databases_indexed": 56,
+  "use_case": "User Query → Retrieve matching Question-SQL Pairs",
+  "quality_assurance": "Only entries with status='valid_quality' are indexed"
+}
