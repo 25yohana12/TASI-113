@@ -21,3 +21,13 @@ Dataset
 The experiments are conducted on the BIRD benchmark.
 Due to licensing restrictions, the original dataset is not included in this repository.
 
+## Contributors
+### Author
+- 12S22002 | Jeremy Mart Valentino Nainggolan
+- 12S22003 | Yohana Natalia Siahaan
+- 12S22019 | Liony Tamara Lewinsky
+### Academic Advisors
+- **Supervisor:** Susi Eva Maria Purba, S.Kom, M.Cs
+- **Examiners:**
+  - Chandro Pardede, S.Kom, M.Sc
+  - Samuel Indra Gunawan Situmeang, S.T.I, M.Sc
