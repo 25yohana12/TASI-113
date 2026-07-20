@@ -16,16 +16,6 @@ Inference Latency
 Token Usage
 Error Distribution
 
-Framework
----
-<p align="center">
-  <img src="asset/online-architecture.jpeg" alt="Hybrid Text-to-SQL Framework" width="900">
-</p>
-
-<p align="center">
-  <em>Figure 1. Online architecture of the proposed Hybrid Text-to-SQL framework.</em>
-</p>
-
 Dataset
 ---
 The experiments are conducted on the BIRD benchmark.
